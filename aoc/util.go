@@ -54,6 +54,10 @@ func charToNumber(c rune) (int64, error) {
 	return strconv.ParseInt(string(c), 10, 64)
 }
 
+func stringToNumber(s string) (int64, error) {
+	return strconv.ParseInt(s, 10, 64)
+}
+
 var numbers = map[string]int64{
 	"one":   1,
 	"two":   2,
