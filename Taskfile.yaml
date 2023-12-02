@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  new:
+    desc: Create files for a new day
+    cmds:
+      - touch aoc aoc/day{{.CLI_ARGS}}.go
+      - touch aoc aoc/day{{.CLI_ARGS}}.data
+      - touch aoc aoc/day{{.CLI_ARGS}}.data.example
+
+  commit:
+    desc: Commit new files for a specific day
+    cmds:
+      - git add aoc/day{{.CLI_ARGS}}.*
+      - git add aoc/util.go
+      - git commit -m "Day {{.CLI_ARGS}}"
+
+  run:
+    desc: Run code for a specific day
+    cmds:
+      - go run main.go --day={{.CLI_ARGS}} --part=1
+      - go run main.go --day={{.CLI_ARGS}} --part=2
