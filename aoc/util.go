@@ -18,6 +18,8 @@ func Run(day, part uint) {
 		runParts(day01Part1, day01Part2)(part)
 	case 2:
 		runParts(day02Part1, day02Part2)(part)
+	case 3:
+		runParts(day03Part1, day03Part2)(part)
 	default:
 		panic("unknown day")
 	}
@@ -77,4 +79,22 @@ func wordToNumber(s string) (int64, error) {
 		}
 	}
 	return 0, errors.New("not a number")
+}
+
+var digits = map[rune]any{
+	'0': nil,
+	'1': nil,
+	'2': nil,
+	'3': nil,
+	'4': nil,
+	'5': nil,
+	'6': nil,
+	'7': nil,
+	'8': nil,
+	'9': nil,
+}
+
+func isDigit(c rune) bool {
+	_, yes := digits[c]
+	return yes
 }
