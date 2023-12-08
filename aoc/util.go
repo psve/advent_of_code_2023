@@ -28,6 +28,8 @@ func Run(day, part uint) {
 		runParts(day06Part1, day06Part2)(part)
 	case 7:
 		runParts(day07Part1, day07Part2)(part)
+	case 8:
+		runParts(day08Part1, day08Part2)(part)
 	default:
 		panic("unknown day")
 	}
@@ -105,4 +107,21 @@ var digits = map[rune]any{
 func isDigit(c rune) bool {
 	_, yes := digits[c]
 	return yes
+}
+
+func gcd(a, b int64) int64 {
+	for b != 0 {
+		t := b
+		b = a % b
+		a = t
+	}
+	return a
+}
+
+func lcm(vals ...int64) int64 {
+	res := int64(1)
+	for i := 0; i < len(vals); i++ {
+		res = res * vals[i] / gcd(res, vals[i])
+	}
+	return res
 }
