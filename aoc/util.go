@@ -26,6 +26,8 @@ func Run(day, part uint) {
 		runParts(day05Part1, day05Part2)(part)
 	case 6:
 		runParts(day06Part1, day06Part2)(part)
+	case 7:
+		runParts(day07Part1, day07Part2)(part)
 	default:
 		panic("unknown day")
 	}
