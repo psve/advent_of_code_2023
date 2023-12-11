@@ -34,6 +34,8 @@ func Run(day, part uint) {
 		runParts(day09Part1, day09Part2)(part)
 	case 10:
 		runParts(day10Part1, day10Part2)(part)
+	case 11:
+		runParts(day11Part1, day11Part2)(part)
 	default:
 		panic("unknown day")
 	}
@@ -128,4 +130,11 @@ func lcm(vals ...int64) int64 {
 		res = res * vals[i] / gcd(res, vals[i])
 	}
 	return res
+}
+
+func int64abs(x int64) int64 {
+	if x < 0 {
+		return -x
+	}
+	return x
 }
